@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="page-title" data-de="Kontakt – Mynewweb" data-en="Contact – Mynewweb">
+  <meta name="description" data-de="Kontaktiere Mynewweb für eine kostenlose Beratung. Ich melde mich innerhalb von 24 Stunden." data-en="Contact Mynewweb for a free consultation. I'll get back to you within 24 hours.">
+  <title>Kontakt – Mynewweb</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">My<span>new</span>web</a>
+    <ul class="navbar__links">
+      <li><a href="leistungen.html" data-de="Leistungen" data-en="Services">Leistungen</a></li>
+      <li><a href="portfolio.html" data-de="Portfolio" data-en="Portfolio">Portfolio</a></li>
+      <li><a href="preise.html" data-de="Preise" data-en="Pricing">Preise</a></li>
+      <li><a href="ueber-mich.html" data-de="Über mich" data-en="About">Über mich</a></li>
+      <li><a href="kontakt.html" class="btn btn-primary" style="padding:0.5rem 1.2rem;font-size:0.85rem" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+    </ul>
+    <div class="navbar__lang">
+      <button data-lang="de" class="active">DE</button>
+      <button data-lang="en">EN</button>
+    </div>
+    <button class="navbar__hamburger" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="hero hero--small">
+    <div class="hero__inner">
+      <p class="section__tag" data-de="Kostenlose Beratung" data-en="Free Consultation">Kostenlose Beratung</p>
+      <h1 class="section__title" data-de="Kontakt" data-en="Contact">Kontakt</h1>
+      <p class="hero__subtitle" data-de="Ich melde mich innerhalb von 24 Stunden." data-en="I'll get back to you within 24 hours.">Ich melde mich innerhalb von 24 Stunden.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__inner contact__layout">
+
+      <div class="contact__info fade-in">
+        <h3 style="font-size:1.3rem;margin-bottom:1rem" data-de="Schreib mir" data-en="Write to me">Schreib mir</h3>
+        <p style="color:var(--text-secondary);margin-bottom:1.5rem;line-height:1.8" data-de="Hast du Fragen oder möchtest ein Projekt starten? Ich freue mich von dir zu hören — ob per E-Mail, WhatsApp oder über das Formular." data-en="Have questions or want to start a project? I'd love to hear from you — by email, WhatsApp, or via the form.">Hast du Fragen oder möchtest ein Projekt starten? Ich freue mich von dir zu hören.</p>
+        <a href="mailto:DEINE@EMAIL.DE" class="contact__link">
+          <i class="fa-solid fa-envelope"></i>
+          <span>DEINE@EMAIL.DE</span>
+        </a>
+        <a href="https://wa.me/DEINE_NUMMER" class="contact__link" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span data-de="WhatsApp schreiben" data-en="Write on WhatsApp">WhatsApp schreiben</span>
+        </a>
+      </div>
+
+      <form id="contact-form" action="https://formspree.io/f/DEINE_FORMULAR_ID" method="POST" class="contact__form card fade-in">
+        <div class="form__group">
+          <label data-de="Name" data-en="Name">Name</label>
+          <input type="text" name="name" required placeholder="Max Mustermann">
+        </div>
+        <div class="form__group">
+          <label data-de="E-Mail" data-en="Email">E-Mail</label>
+          <input type="email" name="email" required placeholder="max@beispiel.de">
+        </div>
+        <div class="form__group">
+          <label data-de="Nachricht" data-en="Message">Nachricht</label>
+          <textarea name="message" rows="5" required data-de-placeholder="Wie kann ich dir helfen?" data-en-placeholder="How can I help you?" placeholder="Wie kann ich dir helfen?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center" data-de="Absenden" data-en="Send">Absenden</button>
+        <p id="form-success" class="form-success hidden" data-de="Nachricht gesendet! Ich melde mich bald." data-en="Message sent! I'll be in touch soon.">Nachricht gesendet! Ich melde mich bald.</p>
+        <p id="form-error" class="form-error hidden" data-de="Etwas ist schiefgelaufen. Bitte versuche es erneut oder schreib direkt per E-Mail." data-en="Something went wrong. Please try again or write directly by email.">Etwas ist schiefgelaufen.</p>
+      </form>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__logo">My<span>new</span>web</div>
+      <ul class="footer__links">
+        <li><a href="leistungen.html" data-de="Leistungen" data-en="Services">Leistungen</a></li>
+        <li><a href="portfolio.html" data-de="Portfolio" data-en="Portfolio">Portfolio</a></li>
+        <li><a href="preise.html" data-de="Preise" data-en="Pricing">Preise</a></li>
+        <li><a href="ueber-mich.html" data-de="Über mich" data-en="About">Über mich</a></li>
+        <li><a href="kontakt.html" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+        <li><a href="impressum.html" data-de="Impressum" data-en="Legal Notice">Impressum</a></li>
+        <li><a href="datenschutz.html" data-de="Datenschutz" data-en="Privacy">Datenschutz</a></li>
+      </ul>
+      <p class="footer__copy">© 2026 Mynewweb. <span data-de="Alle Rechte vorbehalten." data-en="All rights reserved.">Alle Rechte vorbehalten.</span></p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/DEINE_NUMMER" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
