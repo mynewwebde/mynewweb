@@ -47,17 +47,65 @@
 
 /* === LIGHT MODE === */
 [data-theme="light"] {
-  --bg-primary: #f8fafc;
+  --bg-primary: #f0f4f8;
   --bg-card: #ffffff;
   --accent: #2563eb;
   --accent-glow: rgba(37, 99, 235, 0.12);
   --text-primary: #0f172a;
-  --text-secondary: #64748b;
-  --border: #e2e8f0;
-  --navbar-bg: rgba(248, 250, 252, 0.95);
-  --input-bg: #f1f5f9;
-  --hero-gradient: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
-  --process-bg: #f1f5f9;
+  --text-secondary: #475569;
+  --border: #cbd5e1;
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --input-bg: #f8fafc;
+  --hero-gradient: linear-gradient(135deg, #e8f0fe 0%, #dbeafe 100%);
+  --process-bg: #e2e8f0;
+}
+
+/* Light mode spezifische Anpassungen */
+[data-theme="light"] .card {
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
+}
+[data-theme="light"] .card:hover {
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+}
+[data-theme="light"] .navbar {
+  box-shadow: 0 1px 0 var(--border);
+}
+[data-theme="light"] .hero::before {
+  background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%);
+}
+[data-theme="light"] .faq__item {
+  background: var(--bg-card);
+  box-shadow: 0 1px 4px rgba(15,23,42,0.06);
+}
+[data-theme="light"] .btn-outline {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+[data-theme="light"] .btn-outline:hover {
+  background: rgba(37,99,235,0.08);
+}
+[data-theme="light"] .navbar__lang button {
+  border-color: var(--border);
+  color: var(--text-secondary);
+}
+[data-theme="light"] .pricing__card--featured {
+  box-shadow: 0 8px 30px rgba(37,99,235,0.2);
+}
+[data-theme="light"] .footer {
+  background: #e2e8f0;
+  border-top-color: var(--border);
+}
+[data-theme="light"] .whatsapp-btn {
+  box-shadow: 0 4px 16px rgba(37,211,102,0.35);
+}
+[data-theme="light"] .process__step {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(15,23,42,0.06);
+}
+[data-theme="light"] .services-overview__grid .card,
+[data-theme="light"] .portfolio__item {
+  box-shadow: 0 2px 12px rgba(15,23,42,0.08);
 }
 
 /* === RESET === */
