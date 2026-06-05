@@ -97,7 +97,26 @@ if (form) {
   });
 }
 
+/* === THEME TOGGLE === */
+const themeToggle = document.getElementById('theme-toggle');
+let currentTheme = localStorage.getItem('theme') || 'dark';
+
+function applyTheme(theme) {
+  currentTheme = theme;
+  localStorage.setItem('theme', theme);
+  document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : '');
+  if (themeToggle) {
+    themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
+    themeToggle.setAttribute('aria-label', theme === 'light' ? 'Dark Mode' : 'Light Mode');
+  }
+}
+
+themeToggle?.addEventListener('click', () => {
+  applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+});
+
 /* === INIT === */
 document.addEventListener('DOMContentLoaded', () => {
   applyLanguage(currentLang);
+  applyTheme(currentTheme);
 });

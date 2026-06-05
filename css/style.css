@@ -28,7 +28,7 @@
   font-display: swap;
 }
 
-/* === VARIABLEN === */
+/* === VARIABLEN — DARK MODE (Standard) === */
 :root {
   --bg-primary: #0a0a0a;
   --bg-card: #1a1a1a;
@@ -39,6 +39,25 @@
   --border: #2a2a2a;
   --radius: 12px;
   --transition: 0.3s ease;
+  --navbar-bg: rgba(10, 10, 10, 0.95);
+  --input-bg: #0a0a0a;
+  --hero-gradient: linear-gradient(135deg, #0a0a0a 0%, #0f172a 100%);
+  --process-bg: #1a1a1a;
+}
+
+/* === LIGHT MODE === */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-card: #ffffff;
+  --accent: #2563eb;
+  --accent-glow: rgba(37, 99, 235, 0.12);
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+  --navbar-bg: rgba(248, 250, 252, 0.95);
+  --input-bg: #f1f5f9;
+  --hero-gradient: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+  --process-bg: #f1f5f9;
 }
 
 /* === RESET === */
@@ -67,7 +86,7 @@ a { color: inherit; text-decoration: none; }
   border-bottom: 1px solid transparent;
 }
 .navbar.scrolled {
-  background: rgba(10, 10, 10, 0.95);
+  background: var(--navbar-bg);
   border-bottom-color: var(--border);
   backdrop-filter: blur(10px);
 }
@@ -132,7 +151,7 @@ a { color: inherit; text-decoration: none; }
     position: absolute;
     top: 100%; left: 0; right: 0;
     flex-direction: column;
-    background: rgba(10,10,10,0.98);
+    background: var(--navbar-bg);
     padding: 1.5rem 2rem;
     border-bottom: 1px solid var(--border);
     gap: 1.2rem;
@@ -244,6 +263,27 @@ a { color: inherit; text-decoration: none; }
 .footer__links a:hover { color: var(--text-primary); }
 .footer__copy { color: var(--text-secondary); font-size: 0.85rem; }
 
+/* === THEME TOGGLE === */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 /* === WHATSAPP BUTTON === */
 .whatsapp-btn {
   position: fixed;
@@ -284,7 +324,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   padding: 8rem 2rem 5rem;
-  background: linear-gradient(135deg, var(--bg-primary) 0%, #0f172a 100%);
+  background: var(--hero-gradient);
   position: relative;
   overflow: hidden;
 }
@@ -317,7 +357,7 @@ a { color: inherit; text-decoration: none; }
 .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 /* === PROCESS === */
-.process { background: var(--bg-card); }
+.process { background: var(--process-bg); }
 .process__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -483,7 +523,7 @@ a { color: inherit; text-decoration: none; }
 .form__group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.25rem; }
 .form__group label { font-size: 0.9rem; font-weight: 600; }
 .form__group input, .form__group textarea {
-  background: var(--bg-primary);
+  background: var(--input-bg);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.75rem 1rem;
