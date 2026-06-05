@@ -789,7 +789,7 @@ Kopiere die Navbar, Footer und WhatsApp-Button aus `index.html` (identisch auf j
     <div class="service-detail card fade-in">
       <i class="fa-solid fa-laptop-code card__icon"></i>
       <h2 data-de="Webseiten-Erstellung" data-en="Website Development">Webseiten-Erstellung</h2>
-      <p data-de="Ich erstelle professionelle, moderne Webseiten — individuell für dein Business gestaltet." data-en="I create professional, modern websites — individually designed for your business.">...</p>
+      <p data-de="Ich erstelle professionelle, moderne Webseiten — individuell für dein Business gestaltet." data-en="I create professional, modern websites — individually designed for your business.">Ich erstelle professionelle, moderne Webseiten — individuell für dein Business gestaltet.</p>
       <ul class="service__list">
         <li><i class="fa-solid fa-check"></i> <span data-de="Responsives Design (Mobile, Tablet, Desktop)" data-en="Responsive design (mobile, tablet, desktop)">Responsives Design</span></li>
         <li><i class="fa-solid fa-check"></i> <span data-de="SEO-Grundoptimierung" data-en="Basic SEO optimization">SEO-Grundoptimierung</span></li>
@@ -803,7 +803,7 @@ Kopiere die Navbar, Footer und WhatsApp-Button aus `index.html` (identisch auf j
     <div class="service-detail card fade-in" style="margin-top:2rem">
       <i class="fa-solid fa-server card__icon"></i>
       <h2 data-de="Hosting & Wartung" data-en="Hosting & Maintenance">Hosting & Wartung</h2>
-      <p data-de="Ich hoste deine Webseite auf schnellen Servern und halte sie aktuell." data-en="I host your website on fast servers and keep it up to date.">...</p>
+      <p data-de="Ich hoste deine Webseite auf schnellen Servern und halte sie aktuell." data-en="I host your website on fast servers and keep it up to date.">Ich hoste deine Webseite auf schnellen Servern und halte sie aktuell.</p>
       <ul class="service__list">
         <li><i class="fa-solid fa-check"></i> <span data-de="Schnelles, zuverlässiges Hosting" data-en="Fast, reliable hosting">Schnelles Hosting</span></li>
         <li><i class="fa-solid fa-check"></i> <span data-de="Regelmäßige Backups" data-en="Regular backups">Regelmäßige Backups</span></li>
@@ -1121,7 +1121,7 @@ Registriere zuerst ein kostenloses Konto auf https://formspree.io und erstelle e
   <div class="section__inner contact__layout">
     <div class="contact__info fade-in">
       <h3 data-de="Schreib mir" data-en="Write to me">Schreib mir</h3>
-      <p style="color:var(--text-secondary);margin:1rem 0" data-de="Hast du Fragen oder möchtest ein Projekt starten? Ich freue mich von dir zu hören." data-en="Have questions or want to start a project? I'd love to hear from you.">...</p>
+      <p style="color:var(--text-secondary);margin:1rem 0" data-de="Hast du Fragen oder möchtest ein Projekt starten? Ich freue mich von dir zu hören." data-en="Have questions or want to start a project? I'd love to hear from you.">Hast du Fragen oder möchtest ein Projekt starten? Ich freue mich von dir zu hören.</p>
       <a href="mailto:DEINE@EMAIL.DE" class="contact__link"><i class="fa-solid fa-envelope"></i> DEINE@EMAIL.DE</a>
       <a href="https://wa.me/DEINE_NUMMER" class="contact__link" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
     </div>
