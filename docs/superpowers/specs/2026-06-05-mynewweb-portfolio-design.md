@@ -19,7 +19,7 @@ Alle Arten von Kunden in Deutschland: lokale Betriebe (Restaurants, Friseure, Ha
 
 ---
 
-## Seitenstruktur (6 Seiten)
+## Seitenstruktur (8 Seiten)
 
 | Seite | Datei | Inhalt |
 |-------|-------|--------|
@@ -29,6 +29,10 @@ Alle Arten von Kunden in Deutschland: lokale Betriebe (Restaurants, Friseure, Ha
 | Preise | `preise.html` | 3 Pakete + Hosting-Abo Preise |
 | Über mich | `ueber-mich.html` | Profil, Motivation, persönlicher CTA |
 | Kontakt | `kontakt.html` | Kontaktformular + WhatsApp |
+| Impressum | `impressum.html` | Gesetzlich verpflichtende Angaben (§ 5 TMG) |
+| Datenschutz | `datenschutz.html` | DSGVO-konforme Datenschutzerklärung |
+
+**Hinweis:** Impressum und Datenschutz sind für deutsche Geschäftswebseiten gesetzlich verpflichtend. Links zu beiden im Footer auf jeder Seite.
 
 ---
 
@@ -123,6 +127,8 @@ Border:                  #2a2a2a
 
 Pro Projekt: Screenshot/Preview + Projektname + kurze Beschreibung + "Demo ansehen" Button (Link zur echten Demo-Seite)
 
+**Wichtig:** Die 3 Demo-Projekte müssen als separate Mini-Webseiten gebaut und ebenfalls auf Vercel/GitHub Pages deployed werden, *bevor* die Portfolio-Seite live geht. Sie sind eigenständige Builds und gehören zum Implementierungsplan als separate Aufgaben.
+
 ---
 
 ### Preise (`preise.html`)
@@ -158,6 +164,12 @@ CTA unter den Paketen: "Nicht sicher welches Paket? Schreib mir einfach."
 - WhatsApp-Link Button
 - Antwortzeit: "Ich melde mich innerhalb von 24 Stunden"
 
+**Formular-States (Formspree):**
+- Standard: Leeres Formular, Button aktiv
+- Laden: Button deaktiviert, Lade-Spinner sichtbar
+- Erfolg: Grüne Erfolgsmeldung "Nachricht gesendet! Ich melde mich bald."
+- Fehler: Rote Fehlermeldung "Etwas ist schiefgelaufen. Bitte versuche es erneut oder schreib direkt per E-Mail."
+
 ---
 
 ## Globale UI-Elemente
@@ -170,6 +182,9 @@ CTA unter den Paketen: "Nicht sicher welches Paket? Schreib mir einfach."
 **Sprachumschalter:**
 - DE/EN Toggle in der Navbar
 - Umsetzung via JavaScript: Texte in `data-de` und `data-en` Attributen gespeichert, JS wechselt die Sprache dynamisch
+- Beim Sprachwechsel wird auch `<html lang="de">` bzw. `<html lang="en">` aktualisiert
+- `<title>` und `<meta name="description">` werden per JS ebenfalls pro Seite in beiden Sprachen definiert und beim Wechsel aktualisiert
+- Gewählte Sprache wird in `localStorage` gespeichert und beim nächsten Besuch wiederhergestellt
 
 ---
 
@@ -197,10 +212,14 @@ mynewweb/
 ├── preise.html
 ├── ueber-mich.html
 ├── kontakt.html
+├── impressum.html
+├── datenschutz.html
 ├── css/
-│   └── style.css
+│   └── style.css          /* Sektionen: base, navbar, hero, sections, cards,
+│                              pricing, portfolio, contact, footer, responsive */
 ├── js/
-│   └── script.js
+│   └── script.js          /* Sektionen: navbar, language-switcher, animations,
+│                              contact-form, whatsapp-button */
 ├── images/
 │   ├── logo.svg
 │   ├── hero-bg.jpg
@@ -213,13 +232,16 @@ mynewweb/
         └── 2026-06-05-mynewweb-portfolio-design.md
 ```
 
+Die `style.css` wird mit klar benannten Kommentar-Blöcken (`/* === NAVBAR === */` etc.) strukturiert, damit sie als Anfänger übersichtlich bleibt.
+
 ---
 
 ## Erfolgskriterien
 
-- Seite lädt unter 3 Sekunden
+- Lighthouse Performance Score ≥ 80 auf Mobile (gemessen mit Chrome DevTools)
 - Vollständig responsiv (Mobile, Tablet, Desktop)
-- Beide Sprachen (DE/EN) funktionieren korrekt
-- Kontaktformular sendet E-Mails erfolgreich
+- Beide Sprachen (DE/EN) funktionieren korrekt inkl. `lang`-Attribut, `<title>` und `<meta description>`
+- Kontaktformular zeigt Erfolgs- und Fehlermeldung korrekt an
 - WhatsApp-Button funktioniert auf allen Geräten
-- Portfolio zeigt 3 verlinkbare Demo-Projekte
+- Portfolio zeigt 3 verlinkbare, live erreichbare Demo-Projekte
+- Impressum und Datenschutz sind vorhanden und von jeder Seite erreichbar
