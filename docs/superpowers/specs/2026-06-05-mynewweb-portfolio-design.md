@@ -60,9 +60,9 @@ Border:                  #2a2a2a
 ```
 
 ### Typografie
-- **Schrift:** Inter (Google Fonts) — für Überschriften und Fließtext
+- **Schrift:** Inter — für Überschriften und Fließtext
 - Alternativ: Plus Jakarta Sans für Überschriften
-- Beide kostenlos, international verbreitet
+- **DSGVO:** Fonts werden selbst gehostet (nicht via Google CDN) — Inter-Dateien einmalig herunterladen und in `fonts/` ablegen, via `@font-face` in CSS einbinden
 
 ### Stil-Elemente
 - Blauer Glow-Effekt auf Buttons und Akzent-Elementen
@@ -195,7 +195,7 @@ CTA unter den Paketen: "Nicht sicher welches Paket? Schreib mir einfach."
 | Markup | HTML5 |
 | Styling | CSS3 (kein Framework) |
 | Interaktivität | Vanilla JavaScript |
-| Fonts | Google Fonts (Inter) |
+| Fonts | Inter (selbst gehostet, DSGVO-konform) |
 | Icons | Font Awesome (kostenlos) |
 | Hosting | Vercel oder GitHub Pages (kostenlos) |
 | Formulare | Formspree (kostenloser E-Mail-Service) |
@@ -214,6 +214,8 @@ mynewweb/
 ├── kontakt.html
 ├── impressum.html
 ├── datenschutz.html
+├── fonts/
+│   └── inter/             /* Selbst gehostete Inter-Schrift (.woff2) */
 ├── css/
 │   └── style.css          /* Sektionen: base, navbar, hero, sections, cards,
 │                              pricing, portfolio, contact, footer, responsive */
