@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <circle cx="50" cy="50" r="46" fill="none" stroke="#3b82f6" stroke-width="3.5"/>
-  <text x="50" y="30" font-family="Georgia, serif" font-size="24" font-weight="700"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 108 108">
+  <circle cx="50" cy="50" r="46" fill="none" stroke="#3b82f6" stroke-width="3"/>
+  <text x="50" y="29" font-family="Georgia, serif" font-size="23" font-weight="700"
         fill="#ffffff" text-anchor="middle" dominant-baseline="central">M</text>
-  <text x="50" y="52" font-family="Georgia, serif" font-size="24" font-weight="700"
+  <text x="50" y="51" font-family="Georgia, serif" font-size="23" font-weight="700"
         fill="#3b82f6" text-anchor="middle" dominant-baseline="central">N</text>
-  <text x="50" y="74" font-family="Georgia, serif" font-size="24" font-weight="700"
+  <text x="50" y="73" font-family="Georgia, serif" font-size="23" font-weight="700"
         fill="#ffffff" text-anchor="middle" dominant-baseline="central">W</text>
 </svg>
