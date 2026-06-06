@@ -147,7 +147,8 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 10px;
 }
-.navbar__logo span { color: var(--accent); }
+.navbar__logo span { color: inherit; }
+.navbar__logo span span { color: var(--accent); }
 
 .navbar__logo-icon {
   width: 44px;
