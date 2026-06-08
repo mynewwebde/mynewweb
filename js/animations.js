@@ -247,6 +247,38 @@ function initAnimations() {
 
   initCardTilt();
 
+  // Scroll-Reveal — all pages
+  function initScrollReveal() {
+    const targets = document.querySelectorAll(
+      '.pricing__card, .section__tag, .section__title, .card, .fade-in'
+    );
+    if (!targets.length) return;
+
+    targets.forEach(el => {
+      // Skip elements already handled by other animations
+      if (el.classList.contains('process__step')) return;
+      if (el.closest('.portfolio__stage')) return;
+      if (el.closest('.icon-explode-wrapper')) return;
+
+      el.classList.remove('fade-in');
+      gsap.set(el, { opacity: 0, y: 30 });
+
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          once: true
+        }
+      });
+    });
+  }
+
+  initScrollReveal();
+
   // Entry point
   runPreloader(() => {
     runHeroReveal();
