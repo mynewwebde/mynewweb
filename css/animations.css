@@ -25,3 +25,52 @@
 body.is-animating .hero__inner > * {
   opacity: 0;
 }
+
+/* 3D Portfolio Slider */
+.portfolio__slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.portfolio__stage {
+  position: relative;
+  perspective: 1000px;
+  width: 360px;
+  height: 420px;
+}
+
+.portfolio__stage .portfolio__item {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  transition: none;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.portfolio__arrow {
+  background: transparent;
+  border: 1px solid var(--border, #334155);
+  color: var(--text, #ffffff);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.portfolio__arrow:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+
+@media (max-width: 600px) {
+  .portfolio__slider { flex-direction: column; }
+  .portfolio__stage { width: 100%; height: auto; min-height: 420px; }
+}

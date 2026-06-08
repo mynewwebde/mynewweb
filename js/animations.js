@@ -73,6 +73,75 @@ function initAnimations() {
       }, '-=0.3');
   }
 
+  // 3D Portfolio Slider
+  function initPortfolioSlider() {
+    const stage = document.querySelector('.portfolio__stage');
+    if (!stage) return;
+
+    const cards = Array.from(stage.querySelectorAll('.portfolio__item'));
+    let active = 0;
+
+    function getState(index) {
+      const diff = ((index - active) % cards.length + cards.length) % cards.length;
+      const normalised = diff <= cards.length / 2 ? diff : diff - cards.length;
+      if (normalised === 0) return { x: 0, rotateY: 0, scale: 1, opacity: 1, zIndex: 10 };
+      if (normalised === 1 || normalised === -(cards.length - 1))
+        return { x: 140, rotateY: -45, scale: 0.85, opacity: 0.6, zIndex: 5 };
+      return { x: -140, rotateY: 45, scale: 0.85, opacity: 0.6, zIndex: 5 };
+    }
+
+    function render(animate = true) {
+      cards.forEach((card, i) => {
+        const s = getState(i);
+        const method = animate ? gsap.to : gsap.set;
+        method(card, { x: s.x, rotateY: s.rotateY, scale: s.scale,
+          opacity: s.opacity, zIndex: s.zIndex, duration: 0.5, ease: 'power2.out' });
+      });
+    }
+
+    render(false);
+
+    document.querySelector('.portfolio__arrow--prev')?.addEventListener('click', () => {
+      active = (active - 1 + cards.length) % cards.length;
+      render();
+    });
+    document.querySelector('.portfolio__arrow--next')?.addEventListener('click', () => {
+      active = (active + 1) % cards.length;
+      render();
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    stage.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+    stage.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        active = diff > 0
+          ? (active + 1) % cards.length
+          : (active - 1 + cards.length) % cards.length;
+        render();
+      }
+    });
+
+    // Scroll-in animation
+    ScrollTrigger.create({
+      trigger: stage,
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        cards.forEach((card, i) => {
+          const s = getState(i);
+          gsap.fromTo(card,
+            { rotateY: 180, opacity: 0 },
+            { rotateY: s.rotateY, opacity: s.opacity, duration: 0.8, ease: 'power2.out', delay: i * 0.1 }
+          );
+        });
+      }
+    });
+  }
+
+  initPortfolioSlider();
+
   // Process section scroll-reveal
   const processSteps = document.querySelectorAll('.process__step');
   processSteps.forEach(el => el.classList.remove('fade-in')); // remove CSS conflict
