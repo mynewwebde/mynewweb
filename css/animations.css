@@ -93,3 +93,27 @@
   white-space: nowrap;
   will-change: transform, opacity;
 }
+
+/* Hero Particles */
+#hero-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero {
+  position: relative;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: #3b82f6;
+}

@@ -189,6 +189,36 @@ function initAnimations() {
     });
   });
 
+  // Hero Particle Background
+  function initParticles() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    const container = document.createElement('div');
+    container.id = 'hero-particles';
+    hero.prepend(container);
+
+    for (let i = 0; i < 30; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = 3 + Math.random() * 4;
+      p.style.cssText = `width:${size}px;height:${size}px;opacity:${0.15 + Math.random() * 0.25};left:${Math.random() * 100}%;top:${Math.random() * 100}%`;
+      container.appendChild(p);
+
+      gsap.to(p, {
+        y: `${(Math.random() > 0.5 ? 1 : -1) * (20 + Math.random() * 20)}`,
+        x: `${(Math.random() > 0.5 ? 1 : -1) * (10 + Math.random() * 10)}`,
+        duration: 4 + Math.random() * 4,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+        delay: Math.random() * 4
+      });
+    }
+  }
+
+  initParticles();
+
   // Entry point
   runPreloader(() => {
     runHeroReveal();
