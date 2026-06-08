@@ -65,9 +65,13 @@ Extend the existing animation system with 6 new effects to make mynewweb.de feel
 **Targets on `ueber-mich.html`:**
 - Team/profile cards, section headings
 
-**Implementation:** A reusable `initScrollReveal()` function added to `animations.js` that runs `document.querySelectorAll('.fade-in')` elements (existing class already on many elements) and any elements with `data-reveal` attribute, plus explicit selectors for `.pricing__card`. Remove `fade-in` CSS class behavior via JS (same pattern as process steps in v1).
+**Implementation:** A reusable `initScrollReveal()` function added to `animations.js`:
+1. Select all target elements: `document.querySelectorAll('.pricing__card, .fade-in, .section__tag, .section__title, .card')`  — limited to elements on the three target pages (the guard is automatic: if none exist, the function exits harmlessly)
+2. **For every selected element, call `el.classList.remove('fade-in')` immediately** — this prevents the CSS animation in `style.css` from firing before GSAP takes over
+3. Set initial state: `gsap.set(elements, { opacity: 0, y: 30 })`
+4. For each element, add a ScrollTrigger: `start: 'top 85%'`, `once: true`, animate to `{ opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }` with `stagger: 0.12` for `.pricing__card` groups
 
-Note: The `.fade-in` CSS class already triggers a CSS animation in `style.css`. JS must remove this class and replace with GSAP control to avoid conflicts.
+Note: This function runs on every page. Pages that have none of the target selectors simply do nothing.
 
 ---
 
@@ -76,13 +80,18 @@ Note: The `.fade-in` CSS class already triggers a CSS animation in `style.css`. 
 **Trigger:** When `.pricing__price` elements enter viewport (ScrollTrigger, `start: 'top 80%'`, `once: true`).
 
 **Implementation:**
-- Target the two `.pricing__price` divs containing numbers (499€ and 999€) and the 29€ hosting price
-- Each `.pricing__price` stores the target number as a `data-count` attribute added via JS at init time (parse from text content)
-- GSAP animates a counter object `{ val: 0 }` to `{ val: targetNumber }` over 1.5s, ease `power2.out`, and on each update renders `Math.round(obj.val) + '€'` (with "ab " prefix for 499/999, "/ Monat" suffix for 29)
-- The "Auf Anfrage" pricing card is skipped (no number to count)
-- The `<span class="pricing__from">ab</span>` prefix is preserved separately — only the number portion animates
+- Target `.pricing__price` elements that contain a numeric value (skip "Auf Anfrage")
+- At init time, for each target element:
+  1. Find the child `<span class="pricing__from">` (e.g. "ab") and store a reference — do NOT remove it
+  2. Find the text node containing the number (e.g. ` 499€`) — parse the integer from it using `parseInt()`
+  3. Replace the text node with a new `<span id="counter-N">0€</span>` that only holds the number portion
+  4. Store the target integer on the element as `el.dataset.target`
+- GSAP animates `{ val: 0 }` → `{ val: targetNumber }`, duration 1.5s, ease `power2.out`, `onUpdate: () => counterSpan.textContent = Math.round(obj.val) + '€'`
+- The `<span class="pricing__from">` node is untouched — it stays in the DOM as-is
+- For the 29€ hosting price (suffix "/ Monat"), the suffix `<span>` is also preserved; only the leading text node `29€` is replaced
+- The "Auf Anfrage" card (`.pricing__price` with no integer) is skipped via `isNaN(parseInt(...))` check
 
-**HTML change:** None — numbers are parsed from existing text content at runtime.
+**HTML change:** None — all DOM manipulation happens at runtime in JS.
 
 ---
 
@@ -94,7 +103,8 @@ Note: The `.fade-in` CSS class already triggers a CSS animation in `style.css`. 
 - Add `mousemove` listener to `document` (not per-button, for performance)
 - For each `.btn-primary`, check if cursor is within 80px radius of button center
 - If within radius: calculate offset vector from button center to cursor, apply 25% of that distance as GSAP transform (`x`, `y`, max 20px), `duration: 0.3, ease: 'power2.out'`
-- On `mouseleave` (per button): `gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' })`
+- In the document `mousemove` handler: if cursor distance to a button exceeds 80px, also reset that button (`gsap.to(btn, { x: 0, y: 0, duration: 0.5 })`) — this handles the case where the cursor exits the viewport without firing `mouseleave`
+- Additionally add `mouseleave` per button as a secondary reset: `gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' })`
 - Skip on mobile (`window.innerWidth < 768`)
 
 ---
