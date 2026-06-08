@@ -279,6 +279,48 @@ function initAnimations() {
 
   initScrollReveal();
 
+  // Number Counter — preise.html
+  function initCounters() {
+    document.querySelectorAll('.pricing__price').forEach(el => {
+      let textNode = null;
+      let targetNum = 0;
+
+      el.childNodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const parsed = parseInt(node.textContent.replace(/\D/g, ''));
+          if (!isNaN(parsed) && parsed > 0) {
+            textNode = node;
+            targetNum = parsed;
+          }
+        }
+      });
+
+      if (!textNode || targetNum === 0) return;
+
+      const span = document.createElement('span');
+      span.className = 'counter-num';
+      span.textContent = '0€';
+      textNode.replaceWith(span);
+
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 80%',
+        once: true,
+        onEnter: () => {
+          const obj = { val: 0 };
+          gsap.to(obj, {
+            val: targetNum,
+            duration: 1.5,
+            ease: 'power2.out',
+            onUpdate: () => { span.textContent = Math.round(obj.val) + '€'; }
+          });
+        }
+      });
+    });
+  }
+
+  initCounters();
+
   // Entry point
   runPreloader(() => {
     runHeroReveal();
