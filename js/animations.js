@@ -28,6 +28,24 @@ function initAnimations() {
       .to({}, { duration: 0.3 }); // hold 0.3s before exit
   }
 
+  // Page transitions — fade out on internal link click
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('http') || href.startsWith('mailto:')
+        || href.startsWith('tel:') || href.startsWith('#') || link.target === '_blank') return;
+
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const overlay = document.getElementById('page-transition');
+      gsap.to(overlay, {
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power1.in',
+        onComplete: () => { window.location.href = href; }
+      });
+    });
+  });
+
   // Entry point
   runPreloader(() => {
     console.log('Preloader done');
