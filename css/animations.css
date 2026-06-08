@@ -1,10 +1,5 @@
 /* Animations — do not edit style.css */
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Preloader */
 #preloader {
   position: fixed;
