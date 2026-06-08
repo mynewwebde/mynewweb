@@ -37,6 +37,7 @@ function initAnimations() {
     link.addEventListener('click', e => {
       e.preventDefault();
       const overlay = document.getElementById('page-transition');
+      if (!overlay) { window.location.href = href; return; }
       gsap.to(overlay, {
         opacity: 1,
         duration: 0.4,

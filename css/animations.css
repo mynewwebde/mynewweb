@@ -21,11 +21,6 @@
   pointer-events: none;
 }
 
-/* Hide hero content before reveal animation */
-body.is-animating .hero__inner > * {
-  opacity: 0;
-}
-
 /* 3D Portfolio Slider */
 .portfolio__slider {
   position: relative;
