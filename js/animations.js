@@ -354,9 +354,42 @@ function initAnimations() {
 
   initMagneticButtons();
 
+  // Hero Parallax
+  function initHeroParallax() {
+    const heroInner = document.querySelector('.hero__inner');
+    const particles = document.getElementById('hero-particles');
+    if (!heroInner) return;
+
+    gsap.to(heroInner, {
+      y: 80,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    if (particles) {
+      gsap.to(particles, {
+        y: 120,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    }
+  }
+  // Note: initHeroParallax() is called inside runPreloader callback — NOT here
+
   // Entry point
   runPreloader(() => {
     runHeroReveal();
+    initHeroParallax();
   });
 }
 
