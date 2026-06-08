@@ -259,6 +259,7 @@ function initAnimations() {
       if (el.classList.contains('process__step')) return;
       if (el.closest('.portfolio__stage')) return;
       if (el.closest('.icon-explode-wrapper')) return;
+      if (el.closest('.hero')) return;
 
       el.classList.remove('fade-in');
       gsap.set(el, { opacity: 0, y: 30 });
