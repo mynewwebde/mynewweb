@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auftragsbestätigung – Mynewweb</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    .page {
+      width: 100%;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* BRIEFKOPF */
+    .header {
+      padding: 36px 48px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #1a1a1a;
+    }
+
+    .header-brand {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand span { color: #3b82f6; }
+
+    .header-contact {
+      text-align: right;
+      font-size: 0.8rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    /* ADRESSBLOCK */
+    .address-block {
+      padding: 28px 48px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .address-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #888;
+      margin-bottom: 4px;
+    }
+
+    .address-content {
+      font-size: 0.88rem;
+      color: #1a1a1a;
+      line-height: 1.7;
+    }
+
+    /* DOKUMENTTITEL */
+    .doc-title {
+      padding: 28px 48px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .doc-title h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .doc-meta {
+      font-size: 0.82rem;
+      color: #555;
+      text-align: right;
+      line-height: 1.8;
+    }
+
+    /* BODY */
+    .body {
+      padding: 24px 48px 20px;
+      flex: 1;
+    }
+
+    .section {
+      margin-top: 20px;
+    }
+
+    .section:first-child { margin-top: 0; }
+
+    .section-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .section-body {
+      font-size: 0.88rem;
+      color: #1a1a1a;
+      line-height: 1.75;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .field-label {
+      font-size: 0.75rem;
+      color: #888;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .field-value {
+      font-size: 0.88rem;
+      color: #1a1a1a;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    table td {
+      padding: 7px 0;
+      border-bottom: 1px solid #ebebeb;
+      color: #1a1a1a;
+    }
+
+    table td:last-child {
+      text-align: right;
+      font-weight: 500;
+    }
+
+    table tr.total td {
+      border-bottom: none;
+      border-top: 2px solid #1a1a1a;
+      padding-top: 10px;
+      font-weight: 700;
+    }
+
+    table tr.total td:last-child {
+      color: #1a1a1a;
+    }
+
+    .notice {
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 8px;
+      padding-left: 10px;
+      border-left: 3px solid #ddd;
+      line-height: 1.6;
+    }
+
+    /* UNTERSCHRIFTEN */
+    .signature-area {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 4px;
+    }
+
+    .sig-block {
+      padding-top: 48px;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    .sig-block p {
+      font-size: 0.78rem;
+      color: #888;
+    }
+
+    .sig-block .sig-name {
+      font-size: 0.82rem;
+      color: #1a1a1a;
+      font-weight: 500;
+      margin-top: 3px;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 18px 48px;
+      border-top: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-note {
+      font-size: 0.75rem;
+      color: #aaa;
+    }
+
+    .footer-page {
+      font-size: 0.75rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="header">
+    <div class="header-brand">My<span>new</span>web</div>
+    <div class="header-contact">
+      Keyvan Mardani &amp; Fynn Düthmann<br>
+      Landteilstraße 4, 68163 Mannheim<br>
+      Info@mynewweb.de · www.mynewweb.de
+    </div>
+  </div>
+
+  <div class="address-block">
+    <div>
+      <div class="address-label">Auftraggeber</div>
+      <div class="address-content">
+        [Name des Kunden / Firma]<br>
+        [Straße, PLZ Ort]<br>
+        [E-Mail]
+      </div>
+    </div>
+    <div>
+      <div class="address-label">Auftragnehmer</div>
+      <div class="address-content">
+        Mynewweb – Keyvan Mardani<br>
+        Landteilstraße 4, 68163 Mannheim<br>
+        Info@mynewweb.de
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-title">
+    <h1>Auftragsbestätigung</h1>
+    <div class="doc-meta">
+      Datum: [TT.MM.JJJJ]<br>
+      Auftragsnr.: [AB-2025-001]
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div class="section">
+      <div class="section-title">1 · Leistungsumfang</div>
+      <div class="section-body">
+        <div class="field-label">Was wird erstellt</div>
+        <div class="field-value" style="margin-bottom:10px">[z.B. Professionelle Webseite für [Firmenname] mit den Unterseiten: Start, Leistungen, Über uns, Kontakt]</div>
+        <div class="field-label">Enthaltene Funktionen</div>
+        <div class="field-value">[z.B. Kontaktformular, Bildergalerie, mobil-optimiert]</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">2 · Nicht im Auftrag enthalten</div>
+      <div class="section-body">
+        [z.B. Texterstellung, Fotografie, SEO-Optimierung, Onlineshop-Funktionen, laufende Wartung]
+        <div class="notice" style="margin-top:8px">Zusätzliche Leistungen werden separat angeboten und berechnet.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">3 · Vergütung &amp; Zahlungsplan</div>
+      <div class="section-body">
+        <table>
+          <tr>
+            <td>Projektpreis (netto)</td>
+            <td>[BETRAG] €</td>
+          </tr>
+          <tr>
+            <td>Anzahlung bei Auftragserteilung (50 %)</td>
+            <td>[BETRAG / 2] €</td>
+          </tr>
+          <tr class="total">
+            <td>Restzahlung bei Projektabschluss (50 %)</td>
+            <td>[BETRAG / 2] €</td>
+          </tr>
+        </table>
+        <div class="notice">Bei ausbleibender Zahlung behält Mynewweb das Recht, die Webseite bis zur vollständigen Begleichung offline zu nehmen oder zurückzuhalten.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">4 · Zeitplan &amp; Korrekturen</div>
+      <div class="section-body">
+        <div class="row">
+          <div>
+            <div class="field-label">Geplante Fertigstellung</div>
+            <div class="field-value">[TT.MM.JJJJ]</div>
+          </div>
+          <div>
+            <div class="field-label">Korrekturschleifen inklusive</div>
+            <div class="field-value">2 Runden</div>
+          </div>
+        </div>
+        <div class="notice" style="margin-top:10px">Weitere Korrekturrunden werden mit 50 €/Stunde berechnet. Der Zeitplan gilt unter der Voraussetzung, dass alle benötigten Inhalte (Texte, Bilder, Zugänge) rechtzeitig geliefert werden.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">5 · Eigentumsrechte &amp; Hosting</div>
+      <div class="section-body">
+        Nach vollständiger Bezahlung gehen alle Rechte an der fertigen Webseite auf den Auftraggeber über. Mynewweb behält das Recht, das Projekt im eigenen Portfolio zu zeigen.
+        <div style="margin-top:8px">
+          <span class="field-label">Hosting: </span>
+          <span>[Auftraggeber hostet selbst / Mynewweb übernimmt Hosting für 29 €/Monat, monatlich kündbar]</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">6 · Bestätigung</div>
+      <div class="section-body">
+        <div style="font-size:0.82rem;color:#555;margin-bottom:20px">
+          Mit Ihrer Unterschrift bzw. schriftlichen Bestätigung erklären beide Parteien ihr Einverständnis mit den oben genannten Konditionen.
+        </div>
+        <div class="signature-area">
+          <div class="sig-block">
+            <p>Datum, Unterschrift Auftraggeber</p>
+            <div class="sig-name">[Name des Kunden]</div>
+          </div>
+          <div class="sig-block">
+            <p>Datum, Unterschrift Auftragnehmer</p>
+            <div class="sig-name">Keyvan Mardani – Mynewweb</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">Mynewweb · Landteilstraße 4, 68163 Mannheim · Info@mynewweb.de</div>
+    <div class="footer-page">Seite 1</div>
+  </div>
+
+</div>
+
+</body>
+</html>

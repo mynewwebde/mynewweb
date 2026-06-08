@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkliste Neuprojekt – Mynewweb</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      padding: 0;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .page {
+      width: 100%;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      background: #0f172a;
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-left h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.3px;
+    }
+
+    .header-left h1 span { color: #3b82f6; }
+
+    .badge {
+      background: #3b82f6;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .intro {
+      padding: 16px 48px 14px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .intro p {
+      color: #64748b;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .intro strong { color: #1e293b; }
+
+    .body {
+      padding: 12px 48px 12px;
+      flex: 1;
+    }
+
+    .section {
+      margin-top: 12px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .section-icon {
+      width: 36px;
+      height: 36px;
+      background: #eff6ff;
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3b82f6;
+      font-size: 15px;
+    }
+
+    .section-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #3b82f6;
+    }
+
+    .items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 7px 14px;
+      background: #f8fafc;
+      border-radius: 10px;
+      border: 1px solid #f1f5f9;
+      font-size: 0.9rem;
+      color: #334155;
+    }
+
+    .checkbox {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #cbd5e1;
+      border-radius: 5px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .item-text { flex: 1; line-height: 1.5; }
+    .item-note {
+      display: block;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    .footer {
+      background: #0f172a;
+      border-top: none;
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #fff;
+    }
+
+    .footer-brand span { color: #3b82f6; }
+
+    .footer-contact {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      text-align: right;
+    }
+
+    .footer-contact a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { box-shadow: none; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <h1>My<span>new</span>web</h1>
+    </div>
+    <div class="badge">Neuprojekt · Checkliste</div>
+  </div>
+
+  <div class="intro">
+    <p>
+      Sehr geehrte Damen und Herren,<br><br>
+      vielen Dank für Ihr Interesse an unseren Leistungen. Damit wir in unserem Gespräch direkt loslegen können und Sie danach keine Informationen mehr nachliefern müssen, haben wir hier alles zusammengefasst, was wir für Ihr Projekt benötigen.<br><br>
+      <strong>Sie müssen nicht alles sofort parat haben</strong> — je mehr Sie jedoch vorbereiten, desto schneller können wir mit der Umsetzung beginnen.
+    </p>
+  </div>
+
+  <div class="body">
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon"><i class="fa-solid fa-globe"></i></div>
+        <span class="section-title">Domain & E-Mail</span>
+      </div>
+      <ul class="items">
+        <li class="item"><div class="checkbox"></div><div class="item-text">Haben Sie bereits einen Wunschnamen für Ihre Webseite?<span class="item-note">z.B. musterfirma.de — wir prüfen gerne die Verfügbarkeit für Sie</span></div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">Welche Domain-Endung bevorzugen Sie?<span class="item-note">z.B. .de, .com oder beides</span></div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">Benötigen Sie eine professionelle E-Mail-Adresse?<span class="item-note">z.B. info@ihrefirma.de</span></div></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon"><i class="fa-solid fa-palette"></i></div>
+        <span class="section-title">Design & Marke</span>
+      </div>
+      <ul class="items">
+        <li class="item"><div class="checkbox"></div><div class="item-text">Logo-Datei<span class="item-note">Ideal als SVG oder PNG mit transparentem Hintergrund — falls noch kein Logo vorhanden, sprechen Sie uns an</span></div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">Firmenfarben oder Corporate Identity (CI), falls vorhanden</div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">2–3 Webseiten, die Ihnen vom Stil her gefallen<span class="item-note">Branche ist egal — es geht uns um Stimmung, Farben und Aufbau</span></div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">Professionelle Fotos vom Unternehmen, Team oder Produkten<span class="item-note">Falls keine vorhanden, besprechen wir gemeinsam eine Lösung</span></div></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon"><i class="fa-solid fa-file-lines"></i></div>
+        <span class="section-title">Inhalte</span>
+      </div>
+      <ul class="items">
+        <li class="item"><div class="checkbox"></div><div class="item-text">Vollständiger Firmenname und Rechtsform<span class="item-note">z.B. Max Mustermann – Einzelunternehmen, Musterfirma GmbH</span></div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">Adresse, Telefonnummer, E-Mail-Adresse und Öffnungszeiten</div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">Kurze Beschreibung: Was bieten Sie an, und was macht Sie besonders?</div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">Gewünschte Unterseiten<span class="item-note">z.B. Start, Leistungen, Über uns, Galerie, Kontakt</span></div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">Leistungen oder Produkte mit Preisen, die auf der Seite erscheinen sollen (falls gewünscht)</div></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon"><i class="fa-solid fa-gear"></i></div>
+        <span class="section-title">Funktionen</span>
+      </div>
+      <ul class="items">
+        <li class="item"><div class="checkbox"></div><div class="item-text">Reicht eine klassische Info-Seite, oder benötigen Sie spezielle Funktionen?<span class="item-note">z.B. Online-Terminbuchung, Onlineshop, Kontaktformular, Bildergalerie</span></div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">Soll die Webseite auf Deutsch und Englisch verfügbar sein?</div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">Sollen Social-Media-Profile verlinkt werden?<span class="item-note">z.B. Instagram, Facebook, LinkedIn</span></div></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon"><i class="fa-solid fa-server"></i></div>
+        <span class="section-title">Hosting</span>
+      </div>
+      <ul class="items">
+        <li class="item"><div class="checkbox"></div><div class="item-text">Möchten Sie, dass wir Ihre Webseite für Sie hosten und aktuell halten?<span class="item-note">29€/Monat inkl. Wartung, Updates & Support — monatlich kündbar</span></div></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+        <span class="section-title">Rechtliches</span>
+      </div>
+      <ul class="items">
+        <li class="item"><div class="checkbox"></div><div class="item-text">Vollständiger Name der verantwortlichen Person für das Impressum</div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">E-Mail-Adresse, an die Kontaktformular-Anfragen gesendet werden sollen</div></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon"><i class="fa-solid fa-calendar-days"></i></div>
+        <span class="section-title">Zeitplan & Budget</span>
+      </div>
+      <ul class="items">
+        <li class="item"><div class="checkbox"></div><div class="item-text">Was sollen Besucher auf Ihrer Seite tun?<span class="item-note">z.B. anrufen, Formular ausfüllen, Termin buchen, direkt kaufen</span></div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">Gibt es einen Wunschtermin oder eine Deadline für den Launch?</div></li>
+        <li class="item"><div class="checkbox"></div><div class="item-text">Gibt es ein Budget, das wir nicht überschreiten sollen?</div></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand">My<span>new</span>web</div>
+    <div class="footer-contact">
+      <a href="mailto:Info@mynewweb.de">Info@mynewweb.de</a><br>
+      www.mynewweb.de
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
