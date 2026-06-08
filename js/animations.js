@@ -46,9 +46,36 @@ function initAnimations() {
     });
   });
 
+  // Hero Text Reveal
+  function runHeroReveal() {
+    const hero = document.querySelector('.hero__inner');
+    if (!hero) return;
+
+    // Split hero title into word spans
+    const title = hero.querySelector('.hero__title');
+    if (title) {
+      title.innerHTML = title.innerHTML.replace(/<br\s*\/?>/gi, '<br>');
+      title.querySelectorAll('span').forEach(span => {
+        const words = span.textContent.trim().split(' ');
+        span.innerHTML = words.map(w => `<span class="word" style="display:inline-block;overflow:hidden"><span class="word-inner" style="display:inline-block">${w}</span></span>`).join(' ');
+      });
+    }
+
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    tl.from(hero.querySelector('.section__tag'), { y: 20, opacity: 0, duration: 0.5 })
+      .from(hero.querySelectorAll('.word-inner'), {
+        y: 50, opacity: 0, duration: 0.6, stagger: 0.05
+      }, '-=0.2')
+      .from(hero.querySelector('.hero__subtitle'), { y: 30, opacity: 0, duration: 0.6 }, '-=0.3')
+      .from(hero.querySelectorAll('.hero__actions .btn'), {
+        scale: 0.9, opacity: 0, duration: 0.4, stagger: 0.1
+      }, '-=0.3');
+  }
+
   // Entry point
   runPreloader(() => {
-    console.log('Preloader done');
+    runHeroReveal();
   });
 }
 
