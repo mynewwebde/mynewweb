@@ -142,6 +142,34 @@ function initAnimations() {
 
   initPortfolioSlider();
 
+  // Icon Explosion — chips animate FROM scale(0)/opacity(0) in natural flow position
+  document.querySelectorAll('.icon-explode-wrapper').forEach(wrapper => {
+    const icon = wrapper.querySelector('.card__icon');
+    const chips = Array.from(wrapper.querySelectorAll('.feature-chip'));
+
+    // Set initial hidden state
+    gsap.set(chips, { scale: 0, opacity: 0, y: -20 });
+
+    ScrollTrigger.create({
+      trigger: wrapper,
+      start: 'top 75%',
+      once: true,
+      onEnter: () => {
+        // Icon pulse (charge effect)
+        gsap.timeline()
+          .to(icon, { scale: 1.3, duration: 0.18, ease: 'power1.out' })
+          .to(icon, { scale: 1, duration: 0.15, ease: 'power1.in' });
+
+        // Chips pop in from natural positions
+        gsap.to(chips, {
+          scale: 1, opacity: 1, y: 0,
+          duration: 0.4, ease: 'back.out(1.5)', stagger: 0.08,
+          delay: 0.2
+        });
+      }
+    });
+  });
+
   // Process section scroll-reveal
   const processSteps = document.querySelectorAll('.process__step');
   processSteps.forEach(el => el.classList.remove('fade-in')); // remove CSS conflict

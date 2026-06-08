@@ -74,3 +74,27 @@ body.is-animating .hero__inner > * {
   .portfolio__slider { flex-direction: column; }
   .portfolio__stage { width: 100%; height: auto; min-height: 420px; }
 }
+
+/* Icon Explosion */
+.icon-explode-wrapper {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.feature-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.feature-chip {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
