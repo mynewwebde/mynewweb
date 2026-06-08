@@ -219,6 +219,34 @@ function initAnimations() {
 
   initParticles();
 
+  // 3D Card Tilt on Hover
+  function initCardTilt() {
+    if (window.innerWidth < 768) return;
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (e.clientX - cx) / (rect.width / 2);
+        const dy = (e.clientY - cy) / (rect.height / 2);
+        gsap.to(card, {
+          rotateX: -dy * 12,
+          rotateY: dx * 12,
+          duration: 0.4,
+          ease: 'power1.out',
+          transformPerspective: 800
+        });
+      });
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, { rotateX: 0, rotateY: 0, duration: 0.5, ease: 'power2.out' });
+      });
+    });
+  }
+
+  initCardTilt();
+
   // Entry point
   runPreloader(() => {
     runHeroReveal();

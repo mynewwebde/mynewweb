@@ -117,3 +117,9 @@
   border-radius: 50%;
   background: #3b82f6;
 }
+
+/* Card Tilt */
+.card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
