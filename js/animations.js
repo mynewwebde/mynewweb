@@ -73,6 +73,24 @@ function initAnimations() {
       }, '-=0.3');
   }
 
+  // Process section scroll-reveal
+  const processSteps = document.querySelectorAll('.process__step');
+  processSteps.forEach(el => el.classList.remove('fade-in')); // remove CSS conflict
+
+  processSteps.forEach((step, index) => {
+    const isLeft = index % 2 === 0;
+    gsap.from(step, {
+      x: isLeft ? -60 : 60,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: step,
+        start: 'top 80%',
+      }
+    });
+  });
+
   // Entry point
   runPreloader(() => {
     runHeroReveal();
