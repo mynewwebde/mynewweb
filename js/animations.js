@@ -321,6 +321,39 @@ function initAnimations() {
 
   initCounters();
 
+  // Magnetic Buttons
+  function initMagneticButtons() {
+    if (window.innerWidth < 768) return;
+
+    const buttons = Array.from(document.querySelectorAll('.btn-primary'));
+    if (!buttons.length) return;
+
+    document.addEventListener('mousemove', e => {
+      buttons.forEach(btn => {
+        const rect = btn.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dist = Math.hypot(e.clientX - cx, e.clientY - cy);
+
+        if (dist < 80) {
+          const dx = Math.max(-20, Math.min((e.clientX - cx) * 0.25, 20));
+          const dy = Math.max(-20, Math.min((e.clientY - cy) * 0.25, 20));
+          gsap.to(btn, { x: dx, y: dy, duration: 0.3, ease: 'power2.out' });
+        } else {
+          gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'power2.out' });
+        }
+      });
+    });
+
+    buttons.forEach(btn => {
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' });
+      });
+    });
+  }
+
+  initMagneticButtons();
+
   // Entry point
   runPreloader(() => {
     runHeroReveal();
