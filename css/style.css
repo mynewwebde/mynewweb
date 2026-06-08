@@ -159,8 +159,6 @@ a { color: inherit; text-decoration: none; }
 .footer__logo-icon {
   width: 32px;
   height: 32px;
-  margin-right: 8px;
-  vertical-align: middle;
 }
 .navbar__links {
   display: flex;
@@ -311,7 +309,7 @@ a { color: inherit; text-decoration: none; }
   gap: 1.5rem;
   text-align: center;
 }
-.footer__logo { font-size: 1.3rem; font-weight: 700; }
+.footer__logo { font-size: 1.3rem; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 6px; }
 .footer__logo span { color: var(--accent); }
 .footer__links {
   display: flex;
